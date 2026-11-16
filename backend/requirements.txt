@@ -1,0 +1,7 @@
+# Runtime dependencies. yt-dlp is intentionally a lower bound only:
+# X changes often and yt-dlp releases fixes frequently (`pip install -U yt-dlp`).
+fastapi>=0.115
+uvicorn>=0.30
+# [curl-cffi] = yt-dlp's browser-impersonation extra; TikTok refuses plain clients without it.
+yt-dlp[curl-cffi]>=2025.1.1
+certifi>=2024.2.2  # CA bundle for HTTPS requests made outside yt-dlp (python.org builds ship none)

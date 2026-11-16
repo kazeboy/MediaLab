@@ -1,0 +1,11 @@
+[project]
+name = "medialab-backend"
+version = "1.9.0"
+license = "MIT"
+description = "Local MP4 downloader for X posts, TikTok videos and TikTok Short Drama (FastAPI + yt-dlp + FFmpeg)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]

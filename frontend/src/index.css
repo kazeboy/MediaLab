@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+/*
+ * MediaLab design tokens (see docs/FRONTEND_DESIGN_SYSTEM.md).
+ * Semantic colours are CSS variables exposed to Tailwind as utilities (bg-surface, text-muted,
+ * border-line, bg-accent, text-on-accent, …).
+ *
+ * Theme: dark is the default. Light applies only with <html data-theme="light">, set before React
+ * renders by the inline script in index.html from the saved preference (lib/theme.ts). The OS
+ * appearance is deliberately ignored.
+ */
+/*
+ * Typography (v1.8.1). Self-hosted WOFF2 from frontend/public/fonts (no font CDN); SIL Open Font
+ * Licence 1.1, texts alongside. Only the weights the UI uses, Latin + Latin Extended subsets (other
+ * scripts, e.g. CJK drama titles, fall back to the system font per character via unicode-range).
+ * The Latin files are preloaded in index.html; `swap` keeps text visible if a file is slow or missing.
+ *   Manrope 600/700: headings and titles (`font-heading`).
+ *   DM Sans 400/500/600: body text and controls (the default `font-sans`).
+ *   Wordmark: unchanged system font (`font-wordmark`), so the logo stays independent of the UI fonts.
+ */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-ext-600-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-ext-700-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-ext-400-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-ext-500-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-ext-600-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@custom-variant dark (&:where(html:not([data-theme="light"]), html:not([data-theme="light"]) *));
+
+:root {
+  /* Dark theme (default, flagship): near-black canvas, charcoal surfaces, amber accents. */
+  --canvas: #0b0d10;
+  --surface: #171a20;
+  --surface-muted: #20242c;
+  --line: #262a33;
+  --line-strong: #3a3f4a;
+  --text: #f5f5f4; /* 16:1 on surface */
+  --text-muted: #c8c5c0; /* 9:1 on surface-muted */
+  --text-subtle: #a19d96; /* 5.8:1 on surface-muted */
+  --accent: #ffb300; /* MediaLab amber: fills (primary buttons, active tab, progress) */
+  --accent-hover: #ffc233;
+  --on-accent: #0b0d10; /* text on amber: 10.8:1 (white would be 1.8:1) */
+  --accent-text: #ffb300; /* amber as text: 8.7:1 on surface-muted */
+  --accent-soft: rgb(255 179 0 / 0.1); /* selected rows/cards */
+  --accent-line: rgb(255 179 0 / 0.55); /* selected borders */
+  --focus: #ffb300;
+  --scrim: rgb(0 0 0 / 0.6);
+  --wordmark-lab: #ffb300;
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme="light"] {
+  /* Light theme: neutral white and cool-grey surfaces, near-black text, amber accents
+     (deepened where amber is text or a focus ring). */
+  --canvas: #f4f5f7; /* cool grey page */
+  --surface: #ffffff; /* cards, dialogs, drawers */
+  --surface-muted: #eef0f3; /* hover, segmented track, neutral badges, progress track */
+  --line: #e3e6ea;
+  --line-strong: #cdd2d9; /* inputs, secondary buttons */
+  --text: #111318; /* 17:1 on the canvas */
+  --text-muted: #4b5260; /* 6.9:1 on surface-muted */
+  --text-subtle: #5c6370; /* 5.3:1 on surface-muted, 5.5:1 on the canvas */
+  --accent: #ffb300;
+  --accent-hover: #f2a600;
+  --on-accent: #111318; /* 10.4:1 */
+  --accent-text: #8a5100; /* 5.7:1 on surface-muted (plain amber would be 1.8:1 on white) */
+  --accent-soft: #fff3d1;
+  --accent-line: #e9a100;
+  --focus: #b45309; /* 4.6:1 on the canvas (amber would fail the 3:1 non-text minimum) */
+  --scrim: rgb(17 19 24 / 0.45);
+  --wordmark-lab: #b06d00; /* large bold text: 3.8:1 on the canvas (needs 3:1) */
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-canvas: var(--canvas);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-focus: var(--focus);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-accent-fg: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+  --color-scrim: var(--scrim);
+  --color-wordmark-lab: var(--wordmark-lab);
+
+}
+
+@theme {
+  /* Font roles. The fallbacks are the pre-v1.8.1 system stack, used if a font file fails to load. */
+  --font-system: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "DM Sans", var(--font-system);
+  --font-heading: "Manrope", var(--font-system);
+  --font-wordmark: var(--font-system);
+}
+
+/*
+ * One focus style everywhere: visible, consistent, not shown for mouse clicks.
+ * In the base layer so a utility (e.g. `outline-none` on a dialog container that only
+ * receives programmatic focus) can still override it.
+ */
+@layer base {
+  /* Headings and titles use Manrope; everything else inherits DM Sans from :root. */
+  h1,
+  h2,
+  h3,
+  legend {
+    font-family: var(--font-heading);
+  }
+  /* DM Sans ships 400/500/600: keep <strong>/<b> on a real weight instead of a synthesised 700. */
+  b,
+  strong {
+    font-weight: 600;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
+
+body {
+  background: var(--canvas);
+  color: var(--text);
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Room for the sticky batch action bar and the iPhone home indicator. */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}

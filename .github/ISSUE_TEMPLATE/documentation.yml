@@ -1,0 +1,21 @@
+name: Documentation improvement
+description: Something in the README or docs is wrong, unclear or missing.
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page or section?
+      placeholder: "docs/TROUBLESHOOTING.md, Bulk downloads"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested wording (optional)

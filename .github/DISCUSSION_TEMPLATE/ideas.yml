@@ -1,0 +1,14 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What would you like MediaLab to do, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: How would you use it?

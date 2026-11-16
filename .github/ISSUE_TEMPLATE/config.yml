@@ -1,0 +1,9 @@
+# PLACEHOLDER: replace OWNER/REPO with the real repository path before publication.
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question
+    url: https://github.com/OWNER/REPO/discussions/categories/q-a
+    about: Questions about setup or usage go to Discussions (Q&A).
+  - name: Report a security problem privately
+    url: https://github.com/OWNER/REPO/security/advisories/new
+    about: Please don't report vulnerabilities in public issues.

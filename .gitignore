@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+settings.json
+settings.invalid.json
+*.pem
+cookies*.txt
+
+# Downloaded media and temporary files - never commit these
+/downloads/
+/tmp/
+*.mp4
+*.m4a
+*.m4v
+*.mkv
+*.webm
+*.part
+*.ytdl
+*.partial
+*.zip
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.claude/
+tiktok-cookies.txt
+cookies.txt
+
+# Logs, coverage and tool caches
+*.log
+logs/
+coverage/
+.coverage
+htmlcov/
+.vite/
+.cache/

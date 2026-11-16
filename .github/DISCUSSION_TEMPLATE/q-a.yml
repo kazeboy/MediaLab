@@ -1,0 +1,15 @@
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: Please don't post cookies, signed links, settings or downloaded media.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MediaLab version and macOS version

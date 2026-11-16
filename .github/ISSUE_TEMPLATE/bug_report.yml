@@ -1,0 +1,74 @@
+name: Bug report
+description: Something in MediaLab doesn't work as documented.
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Never paste cookies, `cookies.txt`, `settings.json`, signed media links (URLs with `x-expires`, `signature`, `tk=`) or downloaded media.** Security problems go through the private process in SECURITY.md, not here.
+  - type: input
+    id: version
+    attributes:
+      label: MediaLab version
+      description: Shown at the top of the README, or `git describe --tags`.
+      placeholder: "1.9.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does it happen?
+      options:
+        - X tab (single)
+        - X tab (bulk)
+        - TikTok Videos tab (single)
+        - TikTok Videos tab (bulk)
+        - TikTok Short Drama (episode or series)
+        - Downloads drawer
+        - Settings
+        - Setup or startup
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Public links are fine if you're happy to share them; otherwise describe the kind of post or video.
+      placeholder: |
+        1. Open the X tab, Bulk
+        2. Paste two public post links
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: error
+    attributes:
+      label: Error code shown in MediaLab (if any)
+      placeholder: "e.g. audio_missing"
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: macOS version and chip, browser, Python, Node.js, FFmpeg (`ffmpeg -version | head -1`) and yt-dlp versions.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant backend log lines
+      description: From the `make dev` terminal. Remove any URL query strings and account names first.
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I have removed cookies, signed links, settings and personal data from this report.
+          required: true

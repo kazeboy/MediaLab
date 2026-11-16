@@ -1,0 +1,23 @@
+title: "[Desktop] "
+labels: ["desktop"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Technical feedback on standalone MediaLab apps for macOS and Windows. Background: docs/open-source/DESKTOP_PACKAGING_OPTIONS.md and DESKTOP_ARCHITECTURE_PROPOSAL.md. No desktop app exists yet.
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your feedback or experience
+      description: For example packaging Python apps, Tauri or Electron, code signing, notarisation, FFmpeg licensing.
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform you care about most
+      options:
+        - macOS (Apple silicon)
+        - macOS (Intel)
+        - Windows 11
+        - Linux
