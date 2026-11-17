@@ -13,12 +13,15 @@ MediaLab is maintained by one person. Security fixes are made for the **latest r
 
 Please **don't open a public issue** for a security problem.
 
-1. Use GitHub's private reporting: open the repository's **Security** tab and choose **Report a vulnerability**. (The maintainer will enable private vulnerability reporting when the repository is published.)
-2. If that isn't possible, contact **[SECURITY CONTACT: placeholder, to be confirmed before publication]**.
+Report it privately with GitHub's **Private Vulnerability Reporting**:
+
+1. Open the repository's [Security tab](https://github.com/kazeboy/MediaLab/security).
+2. Choose **Report a vulnerability** (or go straight to [the private report form](https://github.com/kazeboy/MediaLab/security/advisories/new)).
+3. Describe the problem. Only you and the maintainer can see the report.
 
 Include the MediaLab version, your operating system, what you did, what happened, and why it's a security problem. A minimal reproduction helps a lot.
 
-You can expect an acknowledgement within about a week. This is a spare-time project, so fixes may take longer; you'll be kept informed and credited (if you wish) when a fix is released.
+MediaLab is a spare-time project with one maintainer, so response and fix times vary. You'll be kept informed in the report and credited (if you wish) when a fix is released.
 
 ## What never to include
 

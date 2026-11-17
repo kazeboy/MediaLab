@@ -14,11 +14,13 @@ Thanks for your interest in MediaLab. It's a small project with one maintainer, 
 
 ## Development setup
 
-Requirements: macOS (the supported platform today), Python 3.11 or later, Node.js 20.19+ or 22.12+, FFmpeg with FFprobe.
+Requirements: macOS (the supported platform today), Python 3.11 or later, Node.js 22.22+, 24.15+ or 26+ (CI uses Node.js 24; the test tools Vitest and jsdom don't support older versions), FFmpeg with FFprobe.
 
 ```bash
 brew install python node ffmpeg
-git clone <your fork> MediaLab && cd MediaLab
+# Fork https://github.com/kazeboy/MediaLab on GitHub first, then:
+git clone https://github.com/<your-username>/MediaLab.git
+cd MediaLab
 make setup          # Python venv + npm install
 make dev            # backend on 127.0.0.1:8000, UI on http://127.0.0.1:5173
 ```
@@ -34,7 +36,7 @@ make test-frontend  # frontend only
 cd frontend && npm run build   # production build
 ```
 
-No test needs the internet or a TikTok account; FFmpeg tests are skipped if FFmpeg is missing. Every pull request should keep all tests passing and add tests for new behaviour or fixed bugs. [docs/TESTING.md](docs/TESTING.md) explains the suites and the manual live checks.
+No test needs the internet or a TikTok account; FFmpeg tests are skipped if FFmpeg is missing. GitHub Actions runs the same checks on every pull request to `main` ([.github/workflows/ci.yml](.github/workflows/ci.yml)): backend tests on Python 3.12 with FFmpeg, and the frontend type-check, tests and build on Node.js 24. Every pull request should keep all tests passing and add tests for new behaviour or fixed bugs. [docs/TESTING.md](docs/TESTING.md) explains the suites and the manual live checks.
 
 ## Coding conventions
 

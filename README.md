@@ -44,13 +44,14 @@ A React UI talks to a local FastAPI backend. The backend validates and canonical
 ## Requirements
 
 - macOS (Apple silicon or Intel). The backend has run on Linux, but Linux isn't tested regularly; Windows isn't supported yet (see [docs/open-source/CODE_REVIEW_V1_9.md](docs/open-source/CODE_REVIEW_V1_9.md#cr-04-medium-the-backend-doesnt-run-on-windows-as-written))
-- Python ≥ 3.11, Node.js 20.19+ or 22.12+, and FFmpeg with FFprobe: `brew install python node ffmpeg`
+- Python ≥ 3.11, Node.js 22.22+, 24.15+ or 26+ (CI uses Node.js 24), and FFmpeg with FFprobe: `brew install python node ffmpeg`
 - A Chromium browser (Chrome, Edge, Arc, Brave) for saving batches into a chosen folder; Safari/Firefox work with normal downloads
 
 ## Install
 
 ```bash
-git clone <this repository> MediaLab && cd MediaLab
+git clone https://github.com/kazeboy/MediaLab.git
+cd MediaLab
 make setup            # or: make setup-locked  (exact tested versions)
 cp .env.example .env  # optional; every value has a default
 ```
