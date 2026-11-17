@@ -18,7 +18,9 @@ Requirements: macOS (the supported platform today), Python 3.11 or later, Node.j
 
 ```bash
 brew install python node ffmpeg
-git clone <your fork> MediaLab && cd MediaLab
+# Fork https://github.com/kazeboy/MediaLab on GitHub first, then:
+git clone https://github.com/<your-username>/MediaLab.git
+cd MediaLab
 make setup          # Python venv + npm install
 make dev            # backend on 127.0.0.1:8000, UI on http://127.0.0.1:5173
 ```

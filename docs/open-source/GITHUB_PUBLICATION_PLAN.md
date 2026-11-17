@@ -9,7 +9,7 @@
 | 1 | Decide what history to publish (author email, CR-14) | **Decided: clean snapshot** | The public repository starts from a reviewed snapshot with a new first commit; development history stays private ([CR-14](CODE_REVIEW_V1_9.md#cr-14-medium-publication-decision-commit-metadata-contains-a-personal-email-address)). Make that first commit with your GitHub `noreply` address |
 | 2 | Confirm the MIT licence and copyright line | **MIT decided**; copyright line still to confirm | `LICENSE` says "MediaLab contributors" ([licence audit](DEPENDENCY_LICENSE_AUDIT.md#5-copyright-notices)) |
 | 3 | Decide whether the logo/name are MIT or reserved | **Decided: reserved** | Documented in [BRAND_ASSETS.md](../../BRAND_ASSETS.md); legal review of the wording recommended |
-| 4 | Fill in placeholders | To do | `CODE_OF_CONDUCT.md` contact, `SECURITY.md` fallback contact, `OWNER/REPO` in `.github/ISSUE_TEMPLATE/config.yml` |
+| 4 | Fill in placeholders | **Done** | Contacts point to the maintainer's GitHub profile and to Private Vulnerability Reporting; `.github/ISSUE_TEMPLATE/config.yml` uses `kazeboy/MediaLab` |
 | 5 | Replace real creator/series names in fixtures and docs | **Done** | CR-13 |
 | 6 | README reviewed for first-time visitors | Done on this branch | Requirements, setup, limitations, contributing and security links |
 | 7 | Community files | Drafted on this branch | `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue forms, PR template, discussion forms |

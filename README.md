@@ -50,7 +50,8 @@ A React UI talks to a local FastAPI backend. The backend validates and canonical
 ## Install
 
 ```bash
-git clone <this repository> MediaLab && cd MediaLab
+git clone https://github.com/kazeboy/MediaLab.git
+cd MediaLab
 make setup            # or: make setup-locked  (exact tested versions)
 cp .env.example .env  # optional; every value has a default
 ```

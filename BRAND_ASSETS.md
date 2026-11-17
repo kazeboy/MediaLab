@@ -37,5 +37,5 @@ The Manrope and DM Sans fonts in `frontend/public/fonts/` are third-party works 
 ## Notes
 
 - MediaLab is not a registered trademark. This file states the copyright holder's reservation of the artwork and a request about the name; it doesn't claim rights beyond those that exist under applicable law. The MIT licence itself grants no trademark rights and isn't relied on to protect the name.
-- Copyright holder: see [LICENSE](LICENSE) ("MediaLab contributors"). **[OWNER INPUT: confirm whether the brand assets are owned by the same holder or by a named person; to be decided before publication.]**
-- Questions about using the brand: **[CONTACT PLACEHOLDER: to be confirmed before publication]**.
+- Copyright holder: see [LICENSE](LICENSE) ("MediaLab contributors"). Whether the brand assets are held by the same holder or by a named person is still to be confirmed by the maintainer.
+- Questions about using the brand: contact the maintainer, [kazeboy](https://github.com/kazeboy), through GitHub, or open a [Discussion](https://github.com/kazeboy/MediaLab/discussions).

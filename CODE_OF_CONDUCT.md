@@ -22,7 +22,7 @@ This applies in all project spaces (issues, pull requests, Discussions, and any 
 
 ## Reporting and enforcement
 
-Report problems privately to the maintainer at **[MAINTAINER CONTACT: placeholder, to be confirmed before publication]**. Reports are handled confidentially. The maintainer may remove comments, lock threads, or temporarily or permanently ban participants who break this code, and will explain the decision to the person concerned where that is safe.
+Report problems to the maintainer, [kazeboy](https://github.com/kazeboy), using a contact option on that GitHub profile. Reports are handled confidentially. If the problem is a security issue, follow [SECURITY.md](SECURITY.md) instead. The maintainer may remove comments, lock threads, or temporarily or permanently ban participants who break this code, and will explain the decision to the person concerned where that is safe.
 
 ## Attribution
 

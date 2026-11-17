@@ -11,7 +11,7 @@
 | # | Blocker | Details |
 |---|---|---|
 | B1 | Personal email address in all commit metadata | **Resolved (2026-11-16):** the public repository starts from a clean snapshot without the development history ([CR-14](CODE_REVIEW_V1_9.md#cr-14-medium-publication-decision-commit-metadata-contains-a-personal-email-address)) |
-| B2 | Placeholders in community files | Maintainer contact in `CODE_OF_CONDUCT.md` and `SECURITY.md`; `OWNER/REPO` in `.github/ISSUE_TEMPLATE/config.yml` |
+| B2 | Placeholders in community files | **Resolved:** `CODE_OF_CONDUCT.md` and `BRAND_ASSETS.md` point to the maintainer's GitHub profile, `SECURITY.md` to Private Vulnerability Reporting, and `.github/ISSUE_TEMPLATE/config.yml` to `kazeboy/MediaLab` |
 | B3 | Licence details | **Decided (2026-11-16):** MIT for code; MediaLab brand assets reserved ([BRAND_ASSETS.md](../../BRAND_ASSETS.md)). Still open: the copyright holder line and an optional legal review of the brand wording |
 | B4 | Owner review of the public snapshot | Replaces merging: the reviewed files are exported to a separate folder without Git history |
 
