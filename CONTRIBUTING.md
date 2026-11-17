@@ -14,7 +14,7 @@ Thanks for your interest in MediaLab. It's a small project with one maintainer, 
 
 ## Development setup
 
-Requirements: macOS (the supported platform today), Python 3.11 or later, Node.js 20.19+ or 22.12+, FFmpeg with FFprobe.
+Requirements: macOS (the supported platform today), Python 3.11 or later, Node.js 22.22+, 24.15+ or 26+ (CI uses Node.js 24; the test tools Vitest and jsdom don't support older versions), FFmpeg with FFprobe.
 
 ```bash
 brew install python node ffmpeg

@@ -112,6 +112,7 @@ No finding is a security vulnerability that is exploitable from the network or f
 - **Options:** (a) accept it; (b) publish a fresh repository from a single snapshot commit of v1.9.0 made with a GitHub `noreply` address, keeping the full history private; (c) rewrite authorship in the existing history (needs explicit approval; changes every commit hash and tag). Option (b) avoids rewriting history.
 - **Blocks publication:** yes, until the owner chooses.
 - **Status (2026-11-16):** the owner chose a **clean snapshot** (option b). The public preview contains no Git history or author metadata; the private repository keeps its full history unchanged.
+- **Status (2026-11-17):** the public repository's initial commit (`deefe99`) was made with the personal address rather than the `noreply` address, so the address is still visible in that one commit's author metadata. Later commits use the GitHub `noreply` address. Fixing `deefe99` would require rewriting the public history and is left as an open owner decision.
 
 ## Earlier conclusions re-checked
 
