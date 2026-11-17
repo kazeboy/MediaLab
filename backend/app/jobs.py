@@ -433,6 +433,12 @@ class JobManager:
                     f"The video exceeds the {plan.max_file_size_bytes // (1024 * 1024)} MB size limit.",
                 )
 
+            # The source streams are no longer needed. Remove them now (outside the lock) so the
+            # job folder is gone before "completed" becomes visible, not just after.
+            for entry in job_dir.iterdir():
+                if entry != output:
+                    remove_tree_within(self.settings.temp_dir, entry)
+
             # Hand the verified MP4 to the temporary delivery area; the browser saves it. Done under
             # the lock after a state check, so a cancellation can't race with completion.
             with self._lock:
@@ -440,6 +446,7 @@ class JobManager:
                 if job.state != JobState.PROCESSING:
                     raise _Stopped()
                 delivery = self.deliveries.add(output, plan.filename)
+                remove_tree_within(self.settings.temp_dir, job_dir)  # empty now that the MP4 has moved
                 job.result = CompletedFile(delivery.file_id, delivery.filename, delivery.size_bytes, probe)
                 job.transition(JobState.COMPLETED)
                 job.stage = "Ready to save"

@@ -108,6 +108,25 @@ def test_temp_dir_removed_after_success_and_failure(settings):
     assert leftovers == []  # job directories (incl. partial files) always removed
 
 
+def test_job_dir_removed_before_completed_is_visible(settings, monkeypatch):
+    """Regression: "completed" used to be published before the job folder was deleted, so a
+    status poll could see a finished job with its temporary files still on disk."""
+    seen: list[bool] = []
+    original = Job.transition
+
+    def recording_transition(self, new_state):
+        if new_state == JobState.COMPLETED:
+            seen.append((settings.temp_dir / f"job-{self.job_id}").exists())
+        original(self, new_state)
+
+    monkeypatch.setattr(Job, "transition", recording_transition)
+    manager = _manager(settings)
+    snap = _wait(manager, manager.submit(_plan(audio=True)).job_id)
+    assert snap.state == JobState.COMPLETED
+    assert seen == [False]  # folder already gone at the moment the job became "completed"
+    assert manager.deliveries.status(snap.result.file_id).path.is_file()  # the MP4 itself was kept
+
+
 def test_download_error_marks_job_failed(settings):
     provider = FakeProvider()
     provider.download_error = AppError(ErrorCode.FORMAT_UNAVAILABLE, "gone")
