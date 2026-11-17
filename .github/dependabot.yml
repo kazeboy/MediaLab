@@ -1,0 +1,36 @@
+# Dependabot version updates, sized for a single-maintainer project:
+# weekly checks, grouped minor and patch updates, few open pull requests.
+# Nothing is merged automatically.
+#
+# Python is deliberately not listed. backend/requirements.txt holds lower
+# bounds only, and backend/requirements.lock is a pip freeze that Dependabot
+# would not keep consistent with it, so version-update pull requests would
+# either be no-ops or drift the two files apart. Python versions are refreshed
+# by hand (recreate the lock, run the tests). Security alerts for Python
+# packages come from GitHub's dependency graph and Dependabot alerts, which are
+# repository settings rather than part of this file.
+
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-and-patch:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: "deps(frontend)"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"
