@@ -9,6 +9,7 @@ import urllib.request
 from collections import namedtuple
 from dataclasses import replace
 from email.message import Message
+from urllib.parse import urlsplit
 
 import pytest
 from fastapi.testclient import TestClient
@@ -243,7 +244,7 @@ def test_download_detects_truncated_file(fx, fake_net, tmp_path, monkeypatch):
 
     def short(url, allowed, **kw):
         resp = original(url, allowed, **kw)
-        if "video.twimg.com" in url and kw.get("method", "GET") == "GET":
+        if urlsplit(url).hostname == "video.twimg.com" and kw.get("method", "GET") == "GET":
             resp.headers.replace_header("Content-Length", "999999")
         return resp
 

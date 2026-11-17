@@ -5,8 +5,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import html from "../../../index.html?raw";
 import { THEME_COLOR, THEME_KEY, useTheme } from "../theme";
 
-/** The inline pre-render script from index.html, run exactly as the browser would. */
-const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)![1];
+/** The inline pre-render script from index.html, run exactly as the browser would.
+ * Parsed with the DOM parser rather than a regular expression; index.html has exactly one
+ * inline script (the other one loads /src/main.tsx). */
+const inlineScripts = new DOMParser().parseFromString(html, "text/html").querySelectorAll("script:not([src])");
+if (inlineScripts.length !== 1) throw new Error(`expected one inline script in index.html, found ${inlineScripts.length}`);
+const inlineScript = inlineScripts[0].textContent ?? "";
 const runInlineScript = () => new Function(inlineScript)();
 
 function resetDocument() {

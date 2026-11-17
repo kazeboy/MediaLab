@@ -1,5 +1,7 @@
 """yt-dlp provider: sanitising raw results, error mapping, output collection (no network)."""
 
+from urllib.parse import urlsplit
+
 import pytest
 
 from app.config import Settings
@@ -23,7 +25,8 @@ def test_params_lock_down_extractors_and_credentials(provider):
 
 def test_sanitise_drops_foreign_formats(provider):
     safe = provider._sanitise(fixtures.single_video_info())
-    assert all("twimg.com" in f["url"] for f in safe["formats"])
+    hosts = {urlsplit(f["url"]).hostname for f in safe["formats"]}
+    assert hosts and all(h == "twimg.com" or h.endswith(".twimg.com") for h in hosts)  # parsed host, not a substring
     assert "http-9999" not in {f["format_id"] for f in safe["formats"]}
 
 
