@@ -36,7 +36,7 @@ make test-frontend  # frontend only
 cd frontend && npm run build   # production build
 ```
 
-No test needs the internet or a TikTok account; FFmpeg tests are skipped if FFmpeg is missing. Every pull request should keep all tests passing and add tests for new behaviour or fixed bugs. [docs/TESTING.md](docs/TESTING.md) explains the suites and the manual live checks.
+No test needs the internet or a TikTok account; FFmpeg tests are skipped if FFmpeg is missing. GitHub Actions runs the same checks on every pull request to `main` ([.github/workflows/ci.yml](.github/workflows/ci.yml)): backend tests on Python 3.12 with FFmpeg, and the frontend type-check, tests and build on Node.js 24. Every pull request should keep all tests passing and add tests for new behaviour or fixed bugs. [docs/TESTING.md](docs/TESTING.md) explains the suites and the manual live checks.
 
 ## Coding conventions
 
